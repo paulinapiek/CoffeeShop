@@ -14,6 +14,15 @@ namespace CoffeeShop.Controllers
         {
             return View(productRepository.GetAllProducts());
         }
-
+        public IActionResult Detail(int id)
+            {
+     //if product id doesn't exist it will returned the information that is not found http error 404
+            var product = productRepository.GetProductDetail(id);
+            if(product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
     }
 }
