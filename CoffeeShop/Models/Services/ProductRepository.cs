@@ -11,7 +11,7 @@ namespace CoffeeShop.Models.Services
         {
             this.dbContext = dbContext;
         }
-        public IEnumerable<Product> GetAllProducts  ()
+        public IEnumerable<Product> ?GetAllProducts  ()
         {
             return dbContext.Products;
         }
