@@ -16,9 +16,9 @@ namespace CoffeeShop.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCartItem>ShoppingCartItems { get; set; }
 
-        //public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
-        //public DbSet<Order> Orders { get; set; }
-        //public DbSet<OrderDetail> OrderDetails { get; set; }
+      
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         //seed data after creating  add-migration InitialCreate and override 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 

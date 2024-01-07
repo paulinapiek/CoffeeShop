@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.Models.Interfaces;
+using CoffeeShop.Models.Services;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,21 +12,27 @@ namespace CoffeeShop.Controllers
         public ShoppingCartController(IShoppingCartRepository shoppingCartRepositiry, IProductRepository productRepository)
         {
             this.shoppingcCartRepository = shoppingCartRepositiry;
+            this.productRepository = productRepository;
 
         }
         public IActionResult Index()
         {
             var items = shoppingcCartRepository.GetShoppingCartItem();
             shoppingcCartRepository.ShoppingCartItems = items;
+           ViewBag.CartTotal= shoppingcCartRepository.GetShoppingCartTotal();
             return View(items);
         }
-        public RedirectToActionResult AddToShoppimgCart(int pId)
+        public RedirectToActionResult AddToShoppingCart(int pId)
         {
-           var product= productRepository.GetAllProducts().FirstOrDefault(p=>p.Id == pId);
+            var products = productRepository.GetAllProducts();
+            var product= products.FirstOrDefault(p=>p.Id == pId);
             if(product != null)
             {
                 shoppingcCartRepository.AddToCart(product);
-            }return RedirectToAction("Index");
+               int cartCount= shoppingcCartRepository.GetShoppingCartItem().Count();
+                HttpContext.Session.SetInt32("CartCount", cartCount);
+            }
+            return RedirectToAction("Index");
         }
         public RedirectToActionResult RemoveFromShoppingCart(int pId)
         {
@@ -33,6 +40,8 @@ namespace CoffeeShop.Controllers
             if (product != null)
             {
                 shoppingcCartRepository.RemoveFromCart(product);
+                int cartCount = shoppingcCartRepository.GetShoppingCartItem().Count();
+                HttpContext.Session.SetInt32("CartCount", cartCount);
             }
             return RedirectToAction("Index");
         }
