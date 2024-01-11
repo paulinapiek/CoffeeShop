@@ -1,5 +1,8 @@
 ﻿using CoffeeShop.Models.Interfaces;
+using CoffeeShop.Models.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 
 namespace CoffeeShop.Controllers
 {
@@ -22,6 +25,48 @@ namespace CoffeeShop.Controllers
             {
                 return NotFound();
             }
+            return View(product);
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create() 
+        {
+            return View() ;
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
+        public IActionResult Create(Product product)
+
+        {
+            productRepository.AddProduct(product);
+            return RedirectToAction("Shop");
+
+        }
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int id) 
+        {
+           productRepository.DeleteProduct(id);
+            return RedirectToAction("Shop");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+       [Authorize(Roles = "Admin")]
+
+        public IActionResult Edit(Product product)
+
+        {
+            productRepository.EditProduct(product);
+            return RedirectToAction("Detail",new { id = product.Id });
+
+        }
+        [HttpGet]
+       [Authorize(Roles = "Admin")]
+        public IActionResult Edit(int id) 
+        {
+            var k = this.HttpContext.User;
+            var product = productRepository.GetProductDetail(id);
             return View(product);
         }
     }

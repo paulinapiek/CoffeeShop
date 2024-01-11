@@ -17,7 +17,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label asp-for="FirstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" asp-for="FirstName" id="firstNameBilling" placeholder="" value="" required="">
+                            <input type="text" class="form-control" asp-for="FirstName" id="firstNameBilling" placeholder="" value="" required title="Your firt name is required">
                             </div>
                         </div>
 
@@ -25,7 +25,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                             <label asp-for="LastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" asp-for="LastName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" asp-for="LastName" placeholder="" value="" required title="Tour last name is required">
                             </div>
                         </div>
 
@@ -33,21 +33,21 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                             <label asp-for="Email" class="form-label">Email</label>
-                            <input type="email" class="form-control" asp-for="Email" placeholder="">
+                            <input type="email" class="form-control" asp-for="Email" placeholder="" required title="You need to enter your email address">
                             </div>
                         </div>
                         <!-- Email-->
                         <div class="col-sm-6">
                             <div class="form-group">
                             <label asp-for="Phone"  class="form-label">Phone</label>
-                            <input type="tel" class="form-control" asp-for="Phone"placeholder="">
+                            <input type="tel" class="form-control" asp-for="Phone"placeholder="" required title="You need to add your phone number">
                             </div>
                         </div>
                         <!-- Address-->
                         <div class="col-12">
                             <div class="form-group">
                             <label asp-for="Address" for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" asp-for="Address" placeholder="123 Some Street Somewhere"></input>
+                            <input type="text" class="form-control" asp-for="Address" placeholder="123 Street" required title="You need to add your address"></input>
                             </div>
                         </div>
                         <!-- Address-->

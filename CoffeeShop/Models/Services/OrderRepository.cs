@@ -26,11 +26,17 @@ namespace CoffeeShop.Models.Services
                 };
                 order.OrderDetails.Add(orderDetail);
             }
-            order.OrderedPlaced=DateTime.Now;
-            order.OrderTotal=shoppingCartRepository.GetShoppingCartTotal();
+            order.OrderedPlaced = DateTime.Now;
+            order.OrderTotal = shoppingCartRepository.GetShoppingCartTotal();
             dbContext.Add(order);
             dbContext.SaveChanges();
         }
 
+
+
     }
+
+
 }
+
+

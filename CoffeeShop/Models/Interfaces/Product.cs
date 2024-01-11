@@ -1,14 +1,21 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+
 namespace CoffeeShop.Models.Interfaces
 {
     public class Product
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Detail{ get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Detail{ get; set; }
         public string ?ImageUrl { get; set; }
-        public decimal Price { get; set; }
+        [Required]
+        [Range(1,100), DataType(DataType.Currency)]
+
+        public decimal Price { get; set; } 
         public bool IsTrendingProduct { get; set; }
     }
 }

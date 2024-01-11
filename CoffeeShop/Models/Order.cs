@@ -10,7 +10,10 @@ namespace CoffeeShop.Models
         [Required(ErrorMessage = "Last Name is required")]
         public string? LastName { get; set;}
 
-        [EmailAddress]
+       
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string? Email { get; set; }
 
         [StringLength(9)]

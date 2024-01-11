@@ -1,7 +1,10 @@
-﻿namespace CoffeeShop.Models.Interfaces
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace CoffeeShop.Models.Interfaces
 {
     public interface IOrderRepository
     {
         void PlaceOrder (Order order);
+     
     }
 }

@@ -4,11 +4,13 @@
    
     
     <title>Products</title>
-</head>
-<br />
+</head>  
 
 
-
+    @if (User.IsInRole("Admin")){
+        <div class="mbr-section-btn pt-3"><a asp-action="Create" class="btn btn-primary display-4">Add new product</a></div>
+    }
+   <br />
 
     <section data-bs-version="5.1" class="info3 cid-tsEY2vwh5a mbr-parallax-background" id="info3-b">
 

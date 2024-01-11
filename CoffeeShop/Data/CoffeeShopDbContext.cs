@@ -2,6 +2,8 @@
 using CoffeeShop.Models.Interfaces;
 using CoffeeShop.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.Security;
 //using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
@@ -34,7 +36,56 @@ namespace CoffeeShop.Data
                     new Product { Id = 7, Name = "Irish Coffee", Detail = "Irish coffee is a warm, comforting drink that combines the bold flavor of coffee with the smooth sweetness of Irish whiskey and a touch of cream. Our version of this classic cocktail is made with rich, bold coffee and the finest Irish whiskey for a perfect balance of flavors. The cream is gently whipped to a smooth consistency and poured over the coffee, creating a luxurious, creamy layer that balances the whiskey’s warmth. Whether you’re looking for a cozy drink on a cold day or a fun nightcap after a night out, Irish coffee is a perfect choice. Order yours today and experience the perfect blend of coffee and whiskey.", Price = 15, IsTrendingProduct = true, ImageUrl = "https://res.cloudinary.com/durcypdqc/image/upload/v1675704079/Coffee%20Shop%20Asp%20.NET%20Core%20~/Irish_Coffee_ncjb0t.png" },
                     new Product { Id = 8, Name = "Iced Coffee", Detail = "Iced coffee is a refreshing and delicious way to enjoy your coffee, perfect for hot summer days or for anyone looking for a cool pick-me-up. Our iced coffee is made with high-quality, freshly brewed coffee, which is then chilled and served over ice. We use only the finest coffee beans, expertly roasted to bring out their rich, full-bodied flavor, ensuring that every sip is a treat. Our iced coffee is available in a variety of flavors, including classic black, vanilla, caramel, and mocha, making it the perfect choice for coffee lovers of all tastes. So why wait? Treat yourself to a cold, refreshing glass of iced coffee today!", Price = 13, IsTrendingProduct = false, ImageUrl = "https://res.cloudinary.com/durcypdqc/image/upload/v1675704079/Coffee%20Shop%20Asp%20.NET%20Core%20~/Iced_Coffee_o2nenz.png" }
 
-                ); ;
+                );
+
+
+
+            _ = modelBuilder.Entity<IdentityUser>().HasData(
+               new IdentityUser()
+               {
+                   Id = "7c75c593-4454-4263-8959-9c419f94e7fc",
+                   UserName = "testadmin@gmail.com",
+                   NormalizedUserName = "TESTADMIN@GMAIL.COM",
+                   Email = "testadmin@gmail.com",
+                   NormalizedEmail = "TESTADMIN@GMAIL.COM",
+                   EmailConfirmed = false,
+                   PasswordHash = "AQAAAAIAAYagAAAAEBBICR9Vv3IsSs1SziaI9MY52RhRxhAqoCDhGKV/DZ35VrhiQfeyKuGmq+eY4U+z/g==",
+                   SecurityStamp = "V7LYP5BOZSODL7ZNRVQXQRV72NNG2BZ4",
+                   ConcurrencyStamp = "433d2ef8-f135-481f-a694-4d1e1883499e",
+                   PhoneNumber = null,
+                   PhoneNumberConfirmed = false,
+                   TwoFactorEnabled = false,
+                   LockoutEnd = null,
+                   LockoutEnabled = true,
+                   AccessFailedCount = 0
+               },
+            new IdentityUser()
+            {
+                Id = "3987099b-3a5d-4cd0-904d-12a6d1f801bb",
+                UserName = "testuser@gmail.com",
+                NormalizedUserName = "TESTUSER@GMAIL.COM",
+                Email = "testuser@gmail.com",
+                NormalizedEmail = "TESTUSER@GMAIL.COM",
+                EmailConfirmed = false,
+                PasswordHash = "AQAAAAIAAYagAAAAEKF+gOXmZ8vIRbdG/MCOM0EH+cWvootd03tO51R4bqLajN6kWR+AX/szl7fc+hJnwA==",
+                SecurityStamp = "FKVYI6UAIYDTXJV6OMMINLSSTNE6YCJK",
+                ConcurrencyStamp = "4882f25f-fb8d-47cf-a489-54def41c61e6",
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            }
+            );
+
+
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole() { Id = "1", Name = "Admin" });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+             new IdentityUserRole<string>() { UserId = "7c75c593-4454-4263-8959-9c419f94e7fc", RoleId = "1" });
+
         }
         //insert data into the projects table add another migration -SeedProductsTable and then update the database with new migration 
         //update-database
