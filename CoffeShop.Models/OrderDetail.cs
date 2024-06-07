@@ -9,7 +9,7 @@
         public Order? Order { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
-        public bool IsOrderDelivered{ get; set; }
+       // public bool IsOrderDelivered{ get; set; }
 
 
     }
