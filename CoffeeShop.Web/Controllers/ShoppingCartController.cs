@@ -1,45 +1,43 @@
-﻿using CoffeShop.Infrastructure.Repositories.Interfaces;
+﻿using CoffeShop.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoffeeShop.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private IShoppingCartRepository shoppingcCartRepository;
-        private IProductRepository productRepository;
-        public ShoppingCartController(IShoppingCartRepository shoppingCartRepositiry, IProductRepository productRepository)
+        private IShoppingCartService shoppingCartService;
+       
+        public ShoppingCartController(IShoppingCartService shoppingCartService)
         {
-            this.shoppingcCartRepository = shoppingCartRepositiry;
-            this.productRepository = productRepository;
+            this.shoppingCartService = shoppingCartService;
+            
 
         }
         public IActionResult Index()
         {
-            var items = shoppingcCartRepository.GetShoppingCartItem();
-            shoppingcCartRepository.ShoppingCartItems = items;
-           ViewBag.CartTotal= shoppingcCartRepository.GetShoppingCartTotal();
-            return View(items);
+            var result = shoppingCartService.GetShoppingCartItems();
+
+            ViewBag.CartTotal = result.count;
+            return View(result.items);
         }
         public RedirectToActionResult AddToShoppingCart(int pId)
         {
-            var products = productRepository.GetAllProducts();
-            var product= products.FirstOrDefault(p=>p.Id == pId);
-            if(product != null)
+            var result= shoppingCartService.AddToShoppingCart(pId);
+
+            if (result >=0)
             {
-                shoppingcCartRepository.AddToCart(product);
-               int cartCount= shoppingcCartRepository.GetShoppingCartItem().Count();
-                HttpContext.Session.SetInt32("CartCount", cartCount);
+                HttpContext.Session.SetInt32("CartCount", result);
+
+
             }
             return RedirectToAction("Index");
         }
         public RedirectToActionResult RemoveFromShoppingCart(int pId)
         {
-            var product = productRepository.GetAllProducts().FirstOrDefault(p => p.Id == pId);
-            if (product != null)
+            var result = shoppingCartService.RemoveFromShoppingCart(pId);
+            if (result >=0)
             {
-                shoppingcCartRepository.RemoveFromCart(product);
-                int cartCount = shoppingcCartRepository.GetShoppingCartItem().Count();
-                HttpContext.Session.SetInt32("CartCount", cartCount);
+                HttpContext.Session.SetInt32("CartCount", result);
             }
             return RedirectToAction("Index");
         }

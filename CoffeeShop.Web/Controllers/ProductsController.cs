@@ -1,24 +1,24 @@
 ﻿using CoffeeShop.Models;
-using CoffeShop.Infrastructure.Repositories.Interfaces;
+using CoffeShop.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace CoffeeShop.Web.Controllers
 {
     public class ProductsController : Controller
     {
-        private IProductRepository productRepository;
-        public ProductsController(IProductRepository productRepository)
+        private IProductService productService;
+        public ProductsController(IProductService productService)
         {
-           this.productRepository = productRepository;
+           this.productService = productService;
         }
         public ActionResult Shop() 
         {
-            return View(productRepository.GetAllProducts());
+            return View(productService.GetAllProducts());
         }
         public IActionResult Detail(int id)
             {
      //if product id doesn't exist it will returned the information that is not found http error 404
-            var product = productRepository.GetProductDetail(id);
+            var product = productService.GetProductDetail(id);
             if(product == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace CoffeeShop.Web.Controllers
         public IActionResult Create(Product product)
 
         {
-            productRepository.AddProduct(product);
+            productService.Create(product);
             return RedirectToAction("Shop");
 
         }
@@ -45,7 +45,7 @@ namespace CoffeeShop.Web.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id) 
         {
-           productRepository.DeleteProduct(id);
+           productService.Delete(id);
             return RedirectToAction("Shop");
         }
         [HttpPost]
@@ -55,7 +55,7 @@ namespace CoffeeShop.Web.Controllers
         public IActionResult Edit(Product product)
 
         {
-            productRepository.EditProduct(product);
+            productService.Edit(product);
             return RedirectToAction("Detail",new { id = product.Id });
 
         }
@@ -63,8 +63,7 @@ namespace CoffeeShop.Web.Controllers
        [Authorize(Roles = "Admin")]
         public IActionResult Edit(int id) 
         {
-            var k = this.HttpContext.User;
-            var product = productRepository.GetProductDetail(id);
+            var product = productService.GetProductDetail(id);
             return View(product);
         }
     }

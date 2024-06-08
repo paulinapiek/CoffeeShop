@@ -11,5 +11,6 @@ namespace CoffeShop.Infrastructure.Repositories.Interfaces
         void ClearCart();
         decimal GetShoppingCartTotal();
         public List<ShoppingCartItem>? ShoppingCartItems { get; set; }
+        public void RemoveAllProductFromCart(int productId);
     }
 }

@@ -92,5 +92,14 @@ namespace CoffeShop.Infrastructure.Repositories.Implementations
             dbContext.SaveChanges();
             return quantity;
         }
+        public void RemoveAllProductFromCart(int productId)
+        {
+            var shoppingCartItem = dbContext.ShoppingCartItems.Where(s => s.Product.Id == productId);
+
+            dbContext.ShoppingCartItems.RemoveRange(shoppingCartItem);
+
+            dbContext.SaveChanges();
+
+        }
     }
 }
