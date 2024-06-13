@@ -39,7 +39,7 @@ a w pliku appsetitings.json dodana nazwa serwera i bazy
 
 ## Dane logowania:
 
-Admin ma możliwość edycji, dodawania oraz usuwania produktów. 
+Admin ma możliwość edycji, dodawania oraz usuwania produktów.
 Logowanie do konta admina:
 Mail: testadmin@gmail.com
 Hasło: Test123!
@@ -71,7 +71,7 @@ Do pierwszej strony można się dostać klikając w nawigacji ikonkę ![Alt](htt
 
 ![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz7.jpg)Ikona ta pozwala na rozwinięcie i możliwość zarejestrowania się na stronie, lub zalogowania. Zalogowany użytkownik ma możliwość wylogowania się, i tylko użytkownik zarejestrowany i zalogowany może złożyć zamówienie, w przeciwnym razie zostanie przeniesiony do widoku logowania
 
-![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz8.jpg)
+![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz8.jpg)
 
 ![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz12.gif) Ta ikonka pozwala użytkownikowi na dostanie się do koszyka, pokazuje również w nawiasie ilość produktów znajdujących się w koszyku.
 Skąd może przejść dalej przyciskiem „Proceed”, gdzie użytkownik musi wprowadzić swoje dane by złożyć zamówienie
@@ -85,4 +85,5 @@ Gdzie po naciśnięciu przycisku „Start Shopping Again” zostaje przekierowan
 Jeśli koszyk jest pusty, a użytkownik chce podglądnąć jego zawartość zostaje przekierowany do widoku 
 
 ![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz11.jpg)
+
 skąd może zacząć przeglądać wszystkie produkty po naciśnięciu przycisku „Start Shopping”
