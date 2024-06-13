@@ -66,12 +66,12 @@ Do pierwszej strony można się dostać klikając w nawigacji ikonkę ![Alt](htt
 
 ![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz8.jpg)
 
-![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz12.gif) Ta ikonka pozwala użytkownikowi na dostanie się do koszyka, pokazuje również w nawiasie ilość produktów znajdujących się w koszyku.
+![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz12.gif) Ta ikonka pozwala użytkownikowi na dostanie się do koszyka, pokazuje również w nawiasie ilość produktów znajdujących się w koszyku.
 Skąd może przejść dalej przyciskiem „Proceed”, gdzie użytkownik musi wprowadzić swoje dane by złożyć zamówienie
-![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz9.jpg)
+![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz9.jpg)
 
 Po naciśnięciu przycisku „Place Order” zamówienie zostaje złożone i zostaje przekierowany do kolejnego widoku, o ile wszystkie wymagane dane zostały wprowadzone, bo w takim wypadku wyświetli się komunikat o błędzie.
-![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz10.jpg)
+![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz10.jpg)
 Gdzie po naciśnięciu przycisku „Start Shopping Again” zostaje przekierowany spowrotem na stronę ze wszystkimi produktami, a ilość produktów w koszyku zeruje się.
 Jeśli koszyk jest pusty, a użytkownik chce podglądnąć jego zawartość zostaje przekierowany do widoku 
-![Alt] (https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz11.jpg)skąd może zacząć przeglądać wszystkie produkty po naciśnięciu przycisku „Start Shopping” 
+![Alt](https://raw.githubusercontent.com/paulinapiek/CoffeeShop/master/dokumentation/Obraz11.jpg)skąd może zacząć przeglądać wszystkie produkty po naciśnięciu przycisku „Start Shopping”
