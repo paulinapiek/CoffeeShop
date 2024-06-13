@@ -41,12 +41,12 @@ a w pliku appsetitings.json dodana nazwa serwera i bazy
 
 Admin ma możliwość edycji, dodawania oraz usuwania produktów.
 Logowanie do konta admina:
-Mail: testadmin@gmail.com
-Hasło: Test123!
+- Mail: testadmin@gmail.com
+- Hasło: Test123!
 
 Dane przykładowego użytkownika do logowania, który ma możliwość złożenia zamówienia:
-Mail: testuser@gmail.com
-Hasło: testUser123!
+- Mail: testuser@gmail.com
+- Hasło: testUser123!
 
 
 ## Wygląd i możliwości dla użytkownika
